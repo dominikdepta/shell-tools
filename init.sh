@@ -33,7 +33,7 @@ mkdir $HOME/projects
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # .zshrc
-# todo
+curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/.zshrc > $HOME/.zshrc
 
 # run zsh
 zsh
