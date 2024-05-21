@@ -36,4 +36,5 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/.zshrc > $HOME/.zshrc
 
 # run zsh
+chsh -s $(which zsh)
 zsh
