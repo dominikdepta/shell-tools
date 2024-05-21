@@ -9,3 +9,8 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/docker-engine.sh)"
 ```
+
+**docker-completion.sh**
+```sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/docker-completion.sh)"
+```
