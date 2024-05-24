@@ -14,3 +14,13 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/docker-completion.sh)"
 ```
+
+**minikube.sh**
+```sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/minikube.sh)"
+```
+
+**kubectl.sh**
+```sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/kubectl.sh)"
+```
