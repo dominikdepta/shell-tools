@@ -22,4 +22,8 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 sudo systemctl start docker.service docker.socket
 sudo docker run --rm hello-world
 sudo docker image rm -f hello-world
+echo -e '\n'
 docker --version
+
+echo -e '\nRun following command if you want to run Docker as a non-root user:'
+echo 'sudo usermod -aG docker $USER'
