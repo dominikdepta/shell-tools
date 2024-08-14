@@ -15,6 +15,11 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/docker-completion.sh)"
 ```
 
+**git-ssh-signature.sh**
+```sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/git-ssh-signature.sh)"
+```
+
 **minikube.sh**
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/minikube.sh)"
