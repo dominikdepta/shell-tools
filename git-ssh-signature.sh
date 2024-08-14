@@ -5,8 +5,6 @@ while true; do
 
   expanded_path="${ssh_key_path/#~/$HOME}"
 
-  echo "Checking file at: '$expanded_path'"
-
   if [ -f "$expanded_path" ]; then
     break
   else
