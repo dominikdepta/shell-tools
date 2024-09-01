@@ -1,5 +1,10 @@
 # shell-tools
 
+**secure-setup.sh**
+```sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/secure-setup.sh)"
+```
+
 **init.sh**
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/init.sh)"
