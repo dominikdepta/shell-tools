@@ -28,6 +28,16 @@ add_new_user() {
       passwd "$new_user_name"
 
       # Add an SSH key for the new user
+      read -p "Do you like to add the new user do sudo group? (Y/n): " confirm_sudo_group
+
+      if [[ -z "$confirm_sudo_group" || "$confirm_sudo_group" =~ ^[Yy]$ ]]; then
+          usermod -aG sudo "$new_user_name"
+          echo "User'$new_user_name' added to the sudo group."
+      else
+          echo "Skipping adding user to the sudo group."
+      fi
+
+      # Add an SSH key for the new user
       read -p "Do you want to add an SSH key for the new user? (Y/n): " confirm_ssh_key
 
       if [[ -z "$confirm_ssh_key" || "$confirm_ssh_key" =~ ^[Yy]$ ]]; then
