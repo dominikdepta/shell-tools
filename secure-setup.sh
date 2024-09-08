@@ -5,60 +5,61 @@ secure_ssh_config="/etc/ssh/sshd_config.d/60-secure-login.conf"
 
 # Functions
 add_new_user() {
-  root_shell_path=$(getent passwd root | cut -d: -f7)
+    root_shell_path=$(getent passwd root | cut -d: -f7)
 
-  while true; do
-      read -p "Enter the new username: " new_user_name
-      if [ -z "$new_user_name" ]; then
-          echo "Username cannot be empty. Please enter a valid username."
-      elif id "$new_user_name" &>/dev/null; then
-          echo "User '$new_user_name' already exists. Please choose a different username."
-      else
-          break
-      fi
-  done
+    while true; do
+        read -p "Enter the new username: " new_user_name
 
-  read -p "Enter the comment (Full Name): " new_user_comment
+        if [ -z "$new_user_name" ]; then
+            echo "Username cannot be empty. Please enter a valid username."
+        elif id "$new_user_name" &>/dev/null; then
+            echo "User '$new_user_name' already exists. Please choose a different username."
+        else
+            break
+        fi
+    done
 
-  useradd -m -c "$new_user_comment" -s "$root_shell_path" "$new_user_name"
+    read -p "Enter the comment (Full Name): " new_user_comment
 
-  if id "$new_user_name" &>/dev/null; then
-      echo "User '$new_user_name' created successfully."
-      echo "Changing password for the new user..."
-      passwd "$new_user_name"
+    useradd -m -c "$new_user_comment" -s "$root_shell_path" "$new_user_name"
 
-      # Add an SSH key for the new user
-      read -p "Do you like to add the new user do sudo group? (Y/n): " confirm_sudo_group
+    if ! id "$new_user_name" &>/dev/null; then
+        echo "Failed to create user '$new_user_name'. Exiting."
+        return
+    fi
 
-      if [[ -z "$confirm_sudo_group" || "$confirm_sudo_group" =~ ^[Yy]$ ]]; then
-          usermod -aG sudo "$new_user_name"
-          echo "User'$new_user_name' added to the sudo group."
-      else
-          echo "Skipping adding user to the sudo group."
-      fi
+    echo "User '$new_user_name' created successfully."
+    echo "Changing password for the new user..."
+    passwd "$new_user_name"
 
-      # Add an SSH key for the new user
-      read -p "Do you want to add an SSH key for the new user? (Y/n): " confirm_ssh_key
+    # Add the new user to the sudo group
+    read -p "Do you like to add the new user do sudo group? (Y/n): " confirm_sudo_group
 
-      if [[ -z "$confirm_ssh_key" || "$confirm_ssh_key" =~ ^[Yy]$ ]]; then
-          mkdir -p /home/"$new_user_name"/.ssh
-          chmod 700 /home/"$new_user_name"/.ssh
-          read -p "Enter the SSH key to add: " ssh_key
-          echo "$ssh_key" >> /home/"$new_user_name"/.ssh/authorized_keys
-          chmod 600 /home/"$new_user_name"/.ssh/authorized_keys
-          chown -R "$new_user_name":"$new_user_name" /home/"$new_user_name"/.ssh
-          echo "SSH key added for user '$new_user_name'."
-      else
-          echo "Skipping SSH key addition."
-      fi
-  else
-      echo "Failed to create user '$new_user_name'. Exiting."
-      exit 1
-  fi
+    if [[ -z "$confirm_sudo_group" || "$confirm_sudo_group" =~ ^[Yy]$ ]]; then
+        usermod -aG sudo "$new_user_name"
+        echo "User'$new_user_name' added to the sudo group."
+    else
+        echo "Skipping adding user to the sudo group."
+    fi
+
+    # Add an SSH key for the new user
+    read -p "Do you want to add an SSH key for the new user? (Y/n): " confirm_ssh_key
+
+    if [[ -z "$confirm_ssh_key" || "$confirm_ssh_key" =~ ^[Yy]$ ]]; then
+        mkdir -p /home/"$new_user_name"/.ssh
+        chmod 700 /home/"$new_user_name"/.ssh
+        read -p "Enter the SSH key to add: " ssh_key
+        echo "$ssh_key" >> /home/"$new_user_name"/.ssh/authorized_keys
+        chmod 600 /home/"$new_user_name"/.ssh/authorized_keys
+        chown -R "$new_user_name":"$new_user_name" /home/"$new_user_name"/.ssh
+        echo "SSH key added for user '$new_user_name'."
+    else
+        echo "Skipping SSH key addition."
+    fi
 }
 
 add_secure_ssh() {
-  bash -c "cat > $secure_ssh_config" << EOF
+    bash -c "cat > $secure_ssh_config" << EOF
 PermitRootLogin no
 PasswordAuthentication no
 PermitEmptyPasswords no
@@ -66,10 +67,9 @@ ChallengeResponseAuthentication no
 PubkeyAuthentication yes
 EOF
 
-  echo "Created secure SSH configuration at $secure_ssh_config"
-
-  echo "Restarting SSH service..."
-  systemctl restart ssh
+    echo "Created secure SSH configuration at $secure_ssh_config"
+    echo "Restarting SSH service..."
+    systemctl restart ssh
 }
 
 # Change current password
@@ -92,12 +92,12 @@ else
     echo "Skipping password change for the current user."
 fi
 
-# Add secure ssh configuration file
+# Add secure SSH login configuration file
 read -p "Do you want to create $secure_ssh_config? (Y/n): " confirm_secure_login
 
 if [[ -z "$confirm_secure_login" || "$confirm_secure_login" =~ ^[Yy]$ ]]; then
-  echo "Creating $secure_ssh_config..."
-  add_secure_ssh
+    echo "Creating $secure_ssh_config..."
+    add_secure_ssh
 else
     echo "Skipping creating $secure_ssh_config."
 fi
