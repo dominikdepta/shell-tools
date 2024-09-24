@@ -1,5 +1,0 @@
-{
-  "terminal.integrated.env.osx": {
-    "PATH": "${env:HOME}/.vscode-server/data/User/globalStorage/biati.ddev-manager/exposed-commands:${env:PATH}"
-  }
-}
