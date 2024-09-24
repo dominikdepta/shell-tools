@@ -1,5 +1,10 @@
 # shell-tools
 
+**ssh-keygen.sh**
+```sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/ssh-keygen.sh)"
+```
+
 **secure-setup.sh**
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/secure-setup.sh)"
