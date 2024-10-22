@@ -31,4 +31,8 @@ export NVM_DIR="$HOME/.nvm"
 
 source $ZSH/oh-my-zsh.sh
 
+alias docker_start="sudo systemctl start docker.service docker.socket"
+alias docker_stop="sudo systemctl stop docker.service docker.socket"
+alias k=kubectl
+
 # =====
