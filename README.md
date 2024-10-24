@@ -10,6 +10,11 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/authorized-keys.sh)"
 ```
 
+**git-ssh-signature.sh**
+```sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/git-ssh-signature.sh)"
+```
+
 **init.sh**
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/init.sh)"
@@ -25,11 +30,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/docker-completion.sh)"
 ```
 
-**git-ssh-signature.sh**
-```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/git-ssh-signature.sh)"
-```
-
 **minikube.sh**
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/minikube.sh)"
@@ -39,3 +39,4 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/kubectl.sh)"
 ```
+
