@@ -5,11 +5,6 @@
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/ssh-keygen.sh)"
 ```
 
-**secure-setup.sh**
-```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/secure-setup.sh)"
-```
-
 **authorized-keys.sh**
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/authorized-keys.sh)"
