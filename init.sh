@@ -13,15 +13,11 @@ NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ho
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # brew packages
-brew install nvm pipx autojump zsh-syntax-highlighting
+brew install nvm autojump zsh-syntax-highlighting zsh-autosuggestions
 
 export PATH="$PATH:/root/.local/bin"
 export NVM_DIR="$HOME/.nvm"
   [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
-
-# pipx
-pipx ensurepath
-sudo pipx ensurepath --global
 
 # Node LTS
 nvm install --lts
@@ -38,3 +34,4 @@ curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/.zshr
 # run zsh
 chsh -s $(which zsh)
 zsh
+

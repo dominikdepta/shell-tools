@@ -12,17 +12,16 @@ plugins=(
     zsh-interactive-cd
 )
 
+# plugins
+source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/linuxbrew/.linuxbrew/etc/profile.d/autojump.sh
+source /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # pipx
 export PATH="$PATH:/home/ubuntu/.local/bin"
-
-# zsh-syntax-highlighting
-source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# autojump
-[ -f /home/linuxbrew/.linuxbrew/etc/profile.d/autojump.sh ] && . /home/linuxbrew/.linuxbrew/etc/profile.d/autojump.sh
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -31,8 +30,9 @@ export NVM_DIR="$HOME/.nvm"
 
 source $ZSH/oh-my-zsh.sh
 
+# aliases
+
 alias docker_start="sudo systemctl start docker.service docker.socket"
 alias docker_stop="sudo systemctl stop docker.service docker.socket"
 alias k=kubectl
 
-# =====
