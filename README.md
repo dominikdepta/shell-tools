@@ -15,9 +15,9 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/git-ssh-signature.sh)"
 ```
 
-**init.sh**
+**dev-env.sh**
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/init.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/dominikdepta/shell-tools/main/dev-env.sh)"
 ```
 
 **docker-engine.sh**

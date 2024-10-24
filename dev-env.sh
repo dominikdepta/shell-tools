@@ -15,6 +15,7 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 # brew packages
 brew install nvm autojump zsh-syntax-highlighting zsh-autosuggestions
 
+# nvm
 export PATH="$PATH:/root/.local/bin"
 export NVM_DIR="$HOME/.nvm"
   [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
